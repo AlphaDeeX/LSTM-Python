@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Feb 09 12:16:06 2017
-
-@author: tismi
-"""
 import numpy as np
 
 class LSTMPopulation(object):
