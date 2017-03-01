@@ -1,12 +1,5 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Feb 09 12:32:03 2017
-
-@author: tismi
-"""
-
 import numpy as np
-import pandas as pd
+#import pandas as pd
 import matplotlib.pyplot as plt
 from lstm_class_object import LSTMPopulation
 import sys
@@ -110,36 +103,3 @@ for ll in range(1):
     plt.title('Prediction Mode - Blue (Prediction), Red (Actual)')
     plt.hold(False)
     plt.show()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
