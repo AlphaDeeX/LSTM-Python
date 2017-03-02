@@ -16,25 +16,20 @@ train_df_roc_signal_unnormalised = np.sin(2*np.pi*300*t_range) + 0.5*np.sin(2*np
 temp = train_df_roc_signal_unnormalised - min(train_df_roc_signal_unnormalised)
 train_df_roc_signal = (temp)/max(temp)
 
-
 plt.figure(1)
 plt.plot(train_df_roc_signal[0:100])
 
 seq_len = 24*3
 input_size = 1
 hidden_size_a = 200
-
 output_size = 1
 learning_rate = 1e-3
 n, p = 0, 0
 
 W_out = np.random.randn(output_size, hidden_size_a) / np.sqrt(output_size)
-
 lstm_a = LSTMPopulation(input_size, hidden_size_a)
-
 signal = np.zeros((seq_len,1))
 target = np.zeros((seq_len,output_size))
-
 mW_out = np.zeros_like(W_out)
 
 j=0
@@ -43,26 +38,17 @@ for i in xrange(1000):
     if j+seq_len+output_size >= len(train_df_roc_signal):
         j=0
         lstm_a.reset_states()
-
     signal[:,0] = train_df_roc_signal[j:j+seq_len]
     target[:,0] = train_df_roc_signal[j+1:j+1+seq_len]
-
     lstm_a.forward(signal)
-    lstm_a_hidden_out = lstm_a.get_hidden_output()
-
-    
+    lstm_a_hidden_out = lstm_a.get_hidden_output()  
     output = lstm_a_hidden_out.dot(W_out.T)   
-
     error = output - target
-    dW_out = (error).T.dot(lstm_a_hidden_out)
-    
-    loss = np.mean(np.square(output - target))
-    
+    dW_out = (error).T.dot(lstm_a_hidden_out)  
+    loss = np.mean(np.square(output - target))  
     dh_out = (error).dot(W_out)
-  
     lstm_a.backward(dh_out)
-    lstm_a.train_network(learning_rate)    
-    
+    lstm_a.train_network(learning_rate)        
     for param, dparam, mem in zip([W_out],
                               [dW_out],
                               [mW_out]):
@@ -73,7 +59,6 @@ for i in xrange(1000):
 
     k += 1
     j += 1
-
 
 # Testing phase
 for ll in range(1):
