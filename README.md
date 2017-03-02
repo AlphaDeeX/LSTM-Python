@@ -1,5 +1,5 @@
 # LSTM-Python
-A pure Python and Numpy implementation of an LSTM Network.
+An efficient, pure Python and Numpy implementation of an LSTM Network.
 
 This is a pure numpy and python implementation of an LSTM network. The example here is for time-series prediction. 
 
