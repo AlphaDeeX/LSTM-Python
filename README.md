@@ -1,8 +1,7 @@
 # LSTM-Python
 A pure Python and Numpy implementation of an LSTM Network.
 
-This is a pure numpy and python implementation of an LSTM network. 
-
+This is a pure numpy and python implementation of an LSTM network. The example here is for time-series prediction. 
 
 Required dependiencies are:
  - Numpy
@@ -14,3 +13,5 @@ The execution file is not commented as of yet, however the LSTM class object fil
 The LSTM cell includes "Peep-hole" connections.
 
 Since the implementation does not use batch-training, the network's convergence is not optimal. This can be seen in the forward projections of a time-series, as the projections have some deviations. However, the hope is that it clearly shows a pure implementation of an LSTM cell and a network to gain a deeper understanding.
+
+Uses Adagrad for training the network.
